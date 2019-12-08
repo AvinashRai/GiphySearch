@@ -8,19 +8,20 @@ import { GiphyService } from '../giphy.service';
   styleUrls: ['./giphysearch.component.css']
 })
 export class GiphysearchComponent implements OnInit {
+  title = 'Search';
   closeResult: string;
   giphies = [];
-
+  searchkeys = [];
   constructor(private httpClient: HttpClient, private modalService: NgbModal, private GiphyService: GiphyService) {
 
 
   }
-  title = 'giphy-search';
+  
 
 
   searchimg(searchTerm: HTMLInputElement): void {
-
-    this.GiphyService.searchimg(searchTerm).subscribe((res) => {
+    this.searchkeys = this.GiphyService.storekewords(searchTerm);
+    this.GiphyService.searchimg(searchTerm).subscribe((res: any) => {
       this.giphies = res.data;
 
     });

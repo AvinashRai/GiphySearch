@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientModule } from '@angular/common/http';
 import { GiphysearchComponent } from './giphysearch.component';
 
 describe('GiphysearchComponent', () => {
@@ -8,7 +8,8 @@ describe('GiphysearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GiphysearchComponent ]
+      declarations: [ GiphysearchComponent ],
+      imports: [HttpClientModule]
     })
     .compileComponents();
   }));
@@ -18,6 +19,10 @@ describe('GiphysearchComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+
+  it(`should render title`, async(() => {
+      expect(component.title).toEqual('Search');
+    }));
 
   it('should create', () => {
     expect(component).toBeTruthy();

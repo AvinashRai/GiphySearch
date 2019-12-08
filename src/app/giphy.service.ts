@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GiphyService {
-
+  keywords = [];
   constructor(private httpClient: HttpClient) { }
   searchimg(searchTerm) {
 
@@ -16,5 +16,11 @@ export class GiphyService {
 
 
 
+  }
+  storekewords(searchTerm){
+    this.keywords.push(searchTerm.value);
+    
+    return [...new Set(this.keywords)];
+    
   }
 }

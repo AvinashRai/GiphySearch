@@ -14,19 +14,27 @@
                     </div>
                     <!--end of col-->
                     <div class="col-auto">
-                        <button class="btn btn-lg btn-success" (click)="searchimg(searchTerm)">Search</button>
+                        <button class="btn btn-lg btn-success" (click)="searchimg(searchTerm)">{{title}}</button>
                     </div>
+                    
                     <!--end of col-->
                 </div>
+                
             </div>
+            <strong *ngIf="searchkeys.length > 0">Keywords: </strong>
+            <ul><li *ngFor="let s of searchkeys">{{s}}</li></ul>
         </div>
         <!--end of col-->
     </div>
 </div>
 
 <br>
-<div class="container" *ngIf="giphies.length > 0">
+<div class="container">
+        
+        
+        
     <div class="row text-center text-lg-left">
+            
         <div class="col-lg-3 col-md-4 col-6" *ngFor="let g of giphies">
             <a href="#" class="d-block mb-4 h-100" (click)="open(content)">
                 <img class="thumbnail" src="{{g.images.downsized_still.url}}">
@@ -34,7 +42,12 @@
             <ng-template #content let-modal>
 
 
-
+                <div class="modal-header">
+                    
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
                 <div class="modal-body" style="text-align: center">
 
                     <img class="largeimg" src="{{g.images.original.url}}">
