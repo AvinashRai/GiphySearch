@@ -1,0 +1,32 @@
+.form-control-borderless {
+    border: none;
+}
+
+.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+section {
+    padding: 20px 40px 20px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    &::after {
+      content: '';
+      flex-grow: 999999999;
+    }
+  }
+  .thumbnail {
+    height: 250px;
+    width: 250px;
+    margin: 2px 2px 2px 2px;
+  }
+  .largeimg{
+    height: 400px;
+    width: 400px;
+    margin: 2px 2px 2px 2px;
+  }
+.abc {
+display: flex;
+flex-wrap: wrap;
+}
